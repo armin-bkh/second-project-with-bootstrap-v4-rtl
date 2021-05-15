@@ -1,0 +1,620 @@
+$color-bg-title: #9ddfd3;
+$color-bg-title-2: #75ada3;
+$color-text-tiltle: #0f3057;
+$color-text-tiltle-2: #047768;
+$color-bg: #f8f1f1;
+$color-header-footer: #025955;
+$color-black: #000000;
+$color-white: #fff;
+$color-menu: #6dafa3;
+$chini:'chini';
+$sahel:'sahel';
+$kordi:'kordi';
+$title:'title';
+
+@mixin d-flex-row($varible) {
+    display: flex;
+    justify-content: $varible;
+    align-items: center;
+    flex-flow: wrap row;
+}
+
+@mixin d-flex-column($varible) {
+    display: flex;
+    justify-content: center;
+    align-items: $varible;
+    flex-flow: wrap column;
+}
+
+%full-space {
+    width: 100%;
+    height: 100%;
+}
+
+
+@font-face {
+    font-family: 'chini';
+    src: url('../fonts/Far_Chini.ttf');
+
+}
+
+@font-face {
+    font-family: 'sahel';
+    src: url('../fonts/Sahel.ttf');
+}
+
+@font-face {
+    font-family: 'kordi';
+    src: url('../fonts/AKORDi.ttf');
+}
+
+@font-face {
+    font-family: 'title';
+    src: url('../fonts/AOrdibeheshtshablon.TTF');
+}
+
+* {
+    box-sizing: border-box !important;
+    font-family: $sahel;
+
+    ::selection{
+        background-color: $color-menu;
+    }
+}
+
+body {
+    background-color: #f8f1f1;
+    color: $color-black;
+}
+
+::-webkit-scrollbar{
+    width: .5rem;
+}
+::-webkit-scrollbar-track{
+    background-color: $color-white;
+}
+::-webkit-scrollbar-thumb{
+    background-color: $color-menu;
+    border-radius: 2rem;
+
+    &:hover{
+        background-color: $color-text-tiltle-2;
+    }
+}
+
+.header {
+
+    .navbar-brand{
+        color: $color-menu;
+        font-family: $kordi;
+    }
+    
+    .navbar-toggler {
+
+        &:focus {
+            outline-color: $color-menu !important;
+        }
+
+        .fas {
+            color: $color-menu;
+            transition: color .3s ease-in;
+
+            &:hover {
+                color: $color-black;
+            }
+        }
+    }
+    .item-center{
+        width: 5rem !important;
+        
+        &::after{
+            border-bottom: none !important;
+        }
+
+        .img-header{
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            border: .2rem solid $color-menu;
+    }
+    }
+    .nav-item {
+        position: relative;
+        background-color: $color-bg;
+        width: 10rem;
+
+        @media only screen and (max-width:767px) {
+            width: 100%;
+        }
+
+        &::after {
+            transition: all .5s ease;
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 0%;
+            height: calc(100% + 3px);
+            border-bottom: 1rem solid $color-menu;
+            z-index: -1;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+
+
+        .nav-link {
+            color: $color-menu;
+            transition: all .5s ease-in;
+
+            &:hover {
+                transform: translateY(-.2rem);
+
+                .fas {
+                    color: $color-black;
+                    text-shadow: 0 0 15px $color-menu;
+                }
+
+            }
+
+            .fas {
+                margin-left: .3rem;
+                transition: color .5s ease-in, text-shadow .5s ease-in;
+            }
+        }
+    }
+}
+
+.main {
+
+    .jumbotron-section {
+        background: linear-gradient(to bottom, rgba($color-bg-title, .4), rgba($color-bg-title, .7), rgba($color-bg-title, .9)), url('../img/croyde-bay-ed4D5xE7FWo-unsplash.jpg') center no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        border-radius: none !important;
+        padding: 5rem 2rem;
+        color: $color-text-tiltle-2;
+        height: calc(100vh - 55px);
+
+        &-header {
+            font-family: $chini;
+            font-weight: bolder;
+            font-size: 5rem;
+
+            @media only screen and (max-width:992px) {
+                font-size: 3rem;
+            }
+            @media only screen and (max-width:439px) {
+                font-size: 2.5rem;
+            }
+        }
+
+        &-subtitle {
+            font-family: $chini;
+            font-weight: bold;
+            font-size: 1.5rem;
+            word-spacing: 1rem;
+            margin-top: 5rem !important;
+
+            @media only screen and (max-width:768px) {
+                font-size: 1.2rem;
+            }
+            @media only screen and (max-width:439px) {
+                font-size: 1rem;
+            }
+        }
+
+        &-btn {
+            background-color: rgba($color: $color-menu, $alpha: .5);
+            padding: .4rem 3rem;
+            border: 2px solid $color-menu;
+            border-radius: 3rem !important;
+            color: $color-text-tiltle-2;
+            transition: background-color .8s ease-in, color .8s ease-in;
+            outline: none;
+
+            &:hover {
+                background-color: rgba($color-menu, 1);
+                color: $color-bg;
+            }
+
+            @media only screen and (max-width:992px) {
+                font-size: .9rem;
+            }
+            @media only screen and (max-width:439px) {
+                font-size: .7rem;
+            }
+        }
+    }
+
+    .places-card-section {
+
+        .places-card-header {
+
+            .title {
+                font-family: $kordi;
+                font-size: 2rem;
+
+                @media only screen and (max-width:992px) {
+                    font-size: 1.8rem;
+                }
+                @media only screen and (max-width:439px) {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .title-2 {
+                clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+                background-color: rgba($color-bg-title, .5);
+            }
+        }
+
+        .card {
+            background-color: rgba($color-bg-title, .3);
+            box-shadow: -5px 5px 10px rgba($color-bg-title, .3), -7px 7px 10px rgba($color-bg-title, .7);
+            border: none;
+            transition: transform .8s ease;
+
+            &:hover {
+                transform: translateY(-.5rem);
+            }
+
+            .card-title {
+                font-family: $title;
+                font-size: 2rem;
+                color: $color-text-tiltle-2;
+                word-spacing: .5rem;
+            }
+
+            .card-subtitle {
+                font-size: .7rem;
+                border-bottom: 1px solid $color-text-tiltle-2;
+            }
+
+            .card-text {
+                font-size: .8rem;
+            }
+
+            .card-btn {
+                border-radius: 3rem;
+                background-color: $color-text-tiltle-2;
+                color: $color-bg;
+                border: none;
+                transition: all 1.5s ease;
+                outline: none;
+
+                &:hover {
+                    transform: translateX(-.5rem);
+                }
+
+                @media only screen and (max-width:992px) {
+                    font-size: .9rem;
+                }
+                @media only screen and (max-width:439px) {
+                    font-size: .7rem;
+                }
+            }
+
+            .card-price {
+                border-bottom: 2px solid $color-text-tiltle-2;
+                color: $color-text-tiltle-2;
+                transition: all 1.5s ease-in;
+            }
+        }
+
+        .places-btn-section {
+
+            .btn-show-slide {
+                border: .1rem solid $color-menu;
+                color: $color-menu;
+                box-shadow: none !important;
+                font-family: $kordi;
+
+                &:hover {
+                    background-color: $color-menu;
+                    color: $color-bg;
+                }
+
+                @media only screen and (max-width:992px) {
+                    font-size: .9rem;
+                }
+                @media only screen and (max-width:439px) {
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
+
+    .carousel-section {
+
+        .carousel {
+
+            .carousel-inner {
+
+                .carousel-item {
+                    background-color: rgba($color: $color-black, $alpha: .9);
+
+                    .carousel-img {
+                        height: 100vh !important;
+                        opacity: .9;
+                    }
+
+                    .carousel-caption {
+
+                        .carousel-title {
+                            font-family: $chini;
+                            font-size: 5rem;
+                            font-weight: bolder;
+                            color: $color-text-tiltle-2;
+
+                            @media only screen and (max-width:445px) {
+                                font-size: 4rem;
+                            }
+                            @media only screen and (max-width:330px) {
+                                font-size: 3rem;
+                            }
+                        }
+
+                        .carousel-text {
+                            color: $color-bg;
+                            font-size: .9rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .services-section {
+
+        .services-header {
+
+            .title {
+                font-family: $kordi;
+                font-size: 2rem;
+
+                @media only screen and (max-width:992px) {
+                    font-size: 1.8rem;
+                }
+                @media only screen and (max-width:439px) {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .title-2 {
+                clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+                background-color: rgba($color-bg-title, .5);
+            }
+        }
+
+        .services-cards {
+
+            .card {
+                box-shadow: -5px 5px 10px rgba($color-bg-title, .3), -7px 7px 10px rgba($color-bg-title, .7);
+                transition: all .8s ease;
+                overflow: hidden;
+                border: none !important;
+
+                &:hover {
+                    transform: translateY(-.5rem);
+
+                    .card-icon {
+
+                        .fas {
+                            margin-right: .3rem;
+
+                            &:nth-child(2) {
+                                transform: translateY(-.3rem);
+                            }
+                        }
+                    }
+                }
+
+                .card-img {
+                    height: 20rem;
+                }
+
+                .card-img-overlay {
+                    background-color: rgba($color-menu, .4);
+                    backdrop-filter: blur(.1rem);
+
+                    .card-title {
+                        font-family: $title !important;
+                        color: $color-text-tiltle-2 !important;
+                        font-size: 3rem;
+                        word-spacing: .5rem;
+
+                        @media only screen and (max-width:767px) {
+                            font-size: 2rem;
+                        }
+                    }
+
+                    .card-text {
+                        font-size: .9rem;
+                        color: $color-white;
+                        font-weight: bolder;
+
+                    }
+
+                    .card-icon {
+                        color: $color-text-tiltle-2;
+
+                        .fas {
+                            transition: all .8s ease;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .talking-section {
+        height: 100vh !important;
+        background: linear-gradient(to bottom, rgba($color-bg-title, 0), rgba($color-bg-title, .3), rgba($color-bg-title, .7), rgba($color-bg-title, .9), rgba($color-bg-title, 1) 95%), url('../img/johannes-w-IQKuHc2lils-unsplash.jpg') center no-repeat;
+        background-size: cover;
+
+        .talking-container {
+            width: 100%;
+            height: 100%;
+
+            .talking-content {
+
+                &-header {
+                    font-family: $chini;
+                    font-size: 4rem;
+                    font-weight: bolder;
+                    color: $color-text-tiltle-2;
+
+                    @media only screen and (max-width:1024px) {
+                        font-size: 3.5rem;
+                    }
+                    @media only screen and (max-width:960px) {
+                        font-size: 3.2rem;
+                    }
+                    @media only screen and (max-width:768px) {
+                        font-size: 2.5rem;
+                    }
+                    @media only screen and (max-width:601px) {
+                        font-size: 2.2rem;
+                    }
+                    @media only screen and (max-width:501px) {
+                        font-size: 2rem;
+                    }
+                    @media only screen and (max-width:384px) {
+                        font-size: 1.8rem;
+                    }
+                }
+
+                &-text {
+                    color: $color-bg;
+
+                    .fas {
+                        font-size: 3rem;
+                        color: $color-text-tiltle-2;
+
+                        @media only screen and (max-width:960px) {
+                            font-size: 2.5rem;
+                        }
+                        @media only screen and (max-width:768px) {
+                            font-size: 2.3rem;
+                        }
+                        @media only screen and (max-width:620px) {
+                            display: none !important;
+                        }
+                    }
+                    @media only screen and (max-width:960px) {
+                        font-size: 1rem;
+                    }
+                    @media only screen and (max-width:768px) {
+                        font-size: .8rem;
+                    }
+                    @media only screen and (max-width:384px) {
+                        font-size: .6rem;
+                    }
+                }
+
+                &-footer {
+                    color: $color-text-tiltle-2;
+                }
+            }
+        }
+    }
+
+    .form-section {
+        background:$color-text-tiltle-2;
+
+        .form-container {
+
+            .form {
+
+                .col-form-label {
+                    color: $color-bg;
+                    font-family: $kordi;
+                    word-spacing: 10px;
+                    font-size: .7rem;
+                }
+
+                .form-control {
+                    background-color: $color-bg;
+                    color: $color-text-tiltle-2;
+                    border-color: $color-bg;
+                    box-shadow: inset -4px -4px 8px rgba(221, 221, 221, .9),
+                        inset 8px 8px 16px rgba(0, 0, 0, .4) !important;
+                    font-family: sans-serif;
+                    outline: none !important;
+                    &::placeholder{
+                        color: $color-text-tiltle-2;
+                    }
+                    
+                    &:focus {
+                        direction: ltr;
+                        border-color: $color-bg !important;
+
+                        &::placeholder {
+                            color: transparent;
+                        }
+                    }
+                }
+
+                .btn-form-section {
+                    background-color: transparent;
+                    color: $color-bg;
+                    box-shadow: none !important;
+                    border-color: $color-bg;
+                    transition: all .8s ease-in;
+                    box-shadow: inset -4px -4px 8px rgba(255, 255, 255, .355555),
+                        inset 8px 8px 16px rgba(0, 0, 0, .3) !important;
+
+                    &:hover {
+                        background-color: $color-bg;
+                        color: $color-header-footer;
+                        border-color: $color-menu;
+                        box-shadow: inset -4px -4px 8px rgba(255, 255, 255, .9),
+                            inset 8px 8px 16px rgba(0, 0, 0, .4) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer{
+    background: linear-gradient(to bottom, rgba($color-text-tiltle-2,1),rgba($color-header-footer,1),rgba($color-header-footer,1));
+    font-size: 1rem;
+
+    .footer-text{
+        font-family: $chini;
+        word-spacing: .5rem;
+        color: $color-bg;
+        font-size: 1.3rem;
+        font-weight: bolder;
+        @media only screen and (max-width:967px){
+            font-size: 1rem;
+        }
+        @media only screen and (max-width:767px){
+            width: 100% !important;
+        }
+    }
+
+    .nav{
+
+        .fab{
+            color: $color-bg;
+            font-size: 2rem;
+            transition: all .5s ease-in;
+
+            &:hover{
+                color: $color-black;
+                text-shadow: 0 0 10px $color-bg-title;
+            }
+
+            @media only screen and (max-width:855px){
+                font-size: 1.7rem;
+            }
+            @media only screen and (max-width:797px){
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
