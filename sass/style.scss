@@ -176,6 +176,10 @@ body {
         color: $color-text-tiltle-2;
         height: calc(100vh - 80px);
 
+        @media only screen and (max-width:992px){
+        height: calc(100vh - 72px);
+        }
+
         &-header {
             font-family: $chini;
             font-weight: bolder;
